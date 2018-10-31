@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="stylesheet.css">
   </head>
   <body>
-    <div class="large-header">
+    <div id="background" class="large-header">
       <div class="container-progress">
         <div class="progressbar-empty">
         </div>
@@ -24,20 +24,18 @@
       </div>
 
       <div class ="container-counter">
-        <div class="first-line">
-          <div id="counter">0</div>
-          <div class="km1">km</div>
-        </div>
-        <div class="second-line">
-          <div id="per-second-counter">0</div>
-          <div class="per-second">km pro Sekunde</div>
+        <div class ="container-counter-inner">
+          <div class="first-line">
+            <div id="counter">0.0</div>
+          </div>
+          <div class="second-line">
+            <div class="per-second"><span id="per-second-counter">0</span> km pro Sekunde</div>
+          </div>
         </div>
       </div>
 
-      <div class="container-cat">
       <div id="cat">
-        <img src="bilder/cat.svg" alt="Cat">
-      </div>
+        <img id="cat-img" src="bilder/cat.svg" alt="Cat">
       </div>
 
     </div>
