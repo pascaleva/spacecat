@@ -29,7 +29,7 @@ Achievements werden hier dokumentiert:
 **Boosts**
 Ein Boost besteht aus einem Produkt und gibt bei Klick zusätzliche Kilometer pro Sekunde. Wenn man 10 vom jeweiligen Produkt gesammelt hat, verschwindet es und ein neues Produkt mit mehr Boost erscheint.
 
-![boosts](https://i.imgur.com/vNbcxNh.png | width=250)
+![boosts](https://i.imgur.com/vNbcxNh.png =250)
 
 
 * Cat-Bag alle 10 Klicks (10km), pro Klick +0.2km/s
