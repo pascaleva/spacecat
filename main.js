@@ -5,6 +5,11 @@ const background = document.getElementById("background")
 const perSecondCounter = document.getElementById("per-second-counter")
 let points = 0
 let speed = 0
+// https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
+const randomMinMax = function(min, max) // min and max included
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
 
 const randomPlusMinus = function(number) {
   let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
