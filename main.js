@@ -105,9 +105,10 @@ const clicker = function(e) {
 
 const baggy = function(e) {
   speed += 0.2
-  perSecondCounter.innerHTML = speed;
   clearTimeout(goodyTimeOut); // stop the timeout since we clicked before the timeout
   bag.classList.add("is-hidden");
+
+  perSecondCounter.innerHTML = speed.toFixed(1);
 }
 
 window.setInterval(function() {
