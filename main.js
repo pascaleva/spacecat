@@ -5,6 +5,7 @@ const background = document.getElementById("background")
 const perSecondCounter = document.getElementById("per-second-counter")
 let points = 0
 let speed = 0
+let clicks = 0; // here we count the clicks – every 10th click there is a bag comming
 // https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 const randomMinMax = function(min, max) // min and max included
 {
@@ -62,6 +63,9 @@ const incrementPoints = function() {
 
 }
 
+const handleGoodies = function() {
+  clicks++ // one more click
+}
 // controll clicker with key P
 //document.addEventListener('keydown', function(e) {
   // console.log(e)
@@ -74,12 +78,7 @@ const incrementPoints = function() {
 const clicker = function(e) {
   // Increment points on click by 1
   incrementPoints()
-
-  if(points % 10 === 0) {
-    bag.classList.remove("is-hidden");
-  } else {
-    bag.classList.add("is-hidden");
-  }
+  handleGoodies() // on each click we look if we deserve new goodies
 }
 
 const baggy = function(e) {
@@ -91,12 +90,6 @@ window.setInterval(function() {
   // console.log('i bims, der points: ', points)
   // console.log('i bims, der speed: ', speed)
   points += speed;
-  Math.round( points * 10 ) / 10;
-  if(points % 10 === 0) {
-    bag.classList.remove("is-hidden");
-  } else {
-    bag.classList.add("is-hidden");
-  }
   counter.innerHTML = points.toFixed(1);
 }, 1000)
 
