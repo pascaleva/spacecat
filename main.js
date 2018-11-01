@@ -6,6 +6,12 @@ const perSecondCounter = document.getElementById("per-second-counter")
 let points = 0
 let speed = 0
 
+const randomPlusMinus = function(number) {
+  let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+  return number * plusOrMinus;
+}
+
+
 const incrementPoints = function() {
   points++
   counter.innerHTML = points.toFixed(1);
