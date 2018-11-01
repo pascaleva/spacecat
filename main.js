@@ -6,6 +6,7 @@ const perSecondCounter = document.getElementById("per-second-counter")
 let points = 0
 let speed = 0
 let clicks = 0; // here we count the clicks – every 10th click there is a bag comming
+let goodyTimeOut = null; // here we save the timer while the goody is visible
 // https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 const randomMinMax = function(min, max) // min and max included
 {
