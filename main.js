@@ -65,6 +65,17 @@ const incrementPoints = function() {
 
 const handleGoodies = function() {
   clicks++ // one more click
+  // one out of 15 draws we get a goody
+  if(randomMinMax(0, 15) === 0) {
+
+    // only for debug. see dev-console to see when you hit it
+    console.log("goodie is now visibel")
+
+    // the goody is in the middle randomly move it somewhere
+    bag.style.transform = 'translate(' + (randomPlusMinus(randomMinMax(20, 45))) + 'vw, ' + (randomPlusMinus(randomMinMax(20, 45))) + 'vh)';
+    // show bag
+    bag.classList.remove("is-hidden");
+  }
 }
 // controll clicker with key P
 //document.addEventListener('keydown', function(e) {
