@@ -73,6 +73,17 @@ const handleGoodies = function() {
 
     // the goody is in the middle randomly move it somewhere
     bag.style.transform = 'translate(' + (randomPlusMinus(randomMinMax(20, 45))) + 'vw, ' + (randomPlusMinus(randomMinMax(20, 45))) + 'vh)';
+
+
+    // the goodies are visible between 0.7s and 3s
+    let visibelInMs = randomMinMax(700, 3000);
+    console.log("visible for: ", visibelInMs);
+
+    // set the timeout
+    goodyTimeOut = setTimeout(function() {
+      bag.classList.add("is-hidden");
+    }, visibelInMs );
+
     // show bag
     bag.classList.remove("is-hidden");
   }
@@ -95,6 +106,8 @@ const clicker = function(e) {
 const baggy = function(e) {
   speed += 0.2
   perSecondCounter.innerHTML = speed;
+  clearTimeout(goodyTimeOut); // stop the timeout since we clicked before the timeout
+  bag.classList.add("is-hidden");
 }
 
 window.setInterval(function() {
