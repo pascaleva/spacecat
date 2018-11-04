@@ -44,10 +44,6 @@ const incrementPoints = function() {
     background.classList.remove('is-animating-even-fasterer');
   }
 
-  //if(points >= 10) {
-//    document.getElementById("cat").classList.remove("jumping");
-//  }
-
 
 }
 
