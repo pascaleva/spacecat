@@ -212,4 +212,8 @@ body {
     line-height: 2.2rem;
     touch-action: none;
   }
+
+  .large-header {
+    background-size:auto;
+  }
 }
