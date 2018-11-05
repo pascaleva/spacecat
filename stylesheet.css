@@ -85,15 +85,22 @@ body {
   transition: all .5s ease;
 }
 
-#bag {
+#goodie1 {
   height: 70px;
-  width: 70px;
+  width: 100px;
   background-color: transparent;
   top: 50%;
   left: 50%;
   position:absolute;
   cursor:pointer;
   color: white;
+  font-size:0.8rem;
+  line-height: 1rem;
+}
+
+.bag {
+  height: 70px;
+  width: 70px;
 }
 
 .is-hidden {
@@ -154,47 +161,55 @@ body {
   height: 100%;
 }
 
-.container-progress {
-  position:relative;
-  left:1.5rem;
-  top:1.6rem;
-  margin:0;
-}
+/* media queries for mobile min max width 320px */
+@media only screen and (max-device-width: 480px) {
+  #cat {
+    height: 700px;
+    width: 700px;
+    position: absolute;
+    cursor: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-.progressbar-empty {
-  background-color: none;
-  width: 1.2rem;
-  height:4rem;
-  position: absolute;
-  outline: 0.5px solid white;
-}
+  .container-counter {
+    position: absolute;
+    top: 8%;
+    width: 600px;
+    right: 29%;
+  }
+  .per-second {
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: white;
+    line-height: 126px;
+  }
 
-.progressbar-filled {
-  background-color: white;
-  height:1rem;
-  margin-top:3rem;
-  width: 1.2rem;
-  position: absolute;
-  outline: 0.5px solid white;
-}
+  #per-second-counter {
+    font-weight: 600;
+    font-size: 2.5rem;
+  }
 
-.level-counter {
-  color:white;
-  font-weight: 600;
-  position: absolute;
-  top:4.7rem;
-  font-size: 1rem;
-}
+  #counter::after {
+    font-size: 2.5rem;
+  }
 
-.level {
-  color:white;
-  font-weight: 600;
-  position: absolute;
-  top:5.8rem;
-  font-size: 1rem;
-}
+  #counter {
+    font-size: 9.5rem;
+  }
 
-.bag-feedback {
-  color: white;
+  .bag {
+    height: 150px;
+    width: 150px;
+  }
 
+  #goodie1 {
+    height: 100px;
+    width: 200px;
+    cursor:auto;
+    font-size:1.9rem;
+    line-height: 2.2rem;
+    touch-action: none;
+  }
 }

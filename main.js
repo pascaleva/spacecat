@@ -1,12 +1,12 @@
 const cat = document.getElementById("cat-img");
 const counter = document.getElementById("counter");
-const bag = document.getElementById("bag");
+const goodie1 = document.getElementById("goodie1");
 const background = document.getElementById("background");
 const perSecondCounter = document.getElementById("per-second-counter");
 let points = 0;
-let speed = 0;
-let clicks = 0; // here we count the clicks – every 10th click there is a bag comming
-let bagTimeOut = null; // here we save the timer while the bag is visible
+let speed = 0; //add 0.2km/s
+let clicks = 0; // here we count the clicks – every 10th click there is a goodie1 (bag) coming
+let goodie1TimeOut = null; // here we save the timer while the goodie1 is visible
 
 // https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 // min and max included
@@ -32,20 +32,21 @@ const incrementPoints = function() {
 
   if (points <= 20) {
     cat.style.transform = "translateY(" + points * -10 + "px)";
-    cat.style.transform += "rotate(" + points * 5 * Math.random() + "deg)";
+    cat.style.transform += "rotate(" + points * 0.2 * Math.random() + "deg)";
   } else {
-    cat.style.transform = "rotate(" + points * 5 * Math.random() + "deg)";
+    cat.style.transform = "rotate(" + points * 0.2 * Math.random() + "deg)";
   }
 
-  if (points === 10) {
+//background is animating when cat is clicked x times
+  if (points === 10.0) {
     background.classList.add("is-animating");
-  } else if (points === 20) {
+  } else if (points === 20.0) {
     background.classList.remove("is-animating");
     background.classList.add("is-animating-fast");
-  } else if (points === 40) {
+  } else if (points === 40.0) {
     background.classList.remove("is-animating-fast");
     background.classList.add("is-animating-even-faster");
-  } else if (points === 80) {
+  } else if (points === 150.0) {
     background.classList.remove("is-animating-even-faster");
     background.classList.add("is-animating-even-fasterer");
   }
@@ -61,37 +62,27 @@ const handleGoodies = function() {
     //console.log("goodie is now visibel");
 
     // the goody is in the middle randomly move it somewhere
-    bag.style.transform =
+    goodie1.style.transform =
       "translate(" +
       randomPlusMinus(randomMinMax(20, 45)) +
       "vw, " +
       randomPlusMinus(randomMinMax(20, 45)) +
       "vh)";
 
-    // the bag is visible between 0.8s and 3s
-    let visibelInMs = randomMinMax(800, 3000);
+    // the goodie1 is visible between 0.8s and 3s
+    let visibelInMs = randomMinMax(1000, 4000);
     console.log("visible for: ", visibelInMs);
 
     // set the timeout
-    bagTimeOut = setTimeout(function() {
-      bag.classList.add("is-hidden");
+    goodie1TimeOut = setTimeout(function() {
+      goodie1.classList.add("is-hidden");
     }, visibelInMs);
 
-    // show bag
-    bag.classList.remove("is-hidden");
+    // show goodie1
+    goodie1.classList.remove("is-hidden");
   }
 };
 
-
-
-// controll clicker with key P
-//document.addEventListener('keydown', function(e) {
-// console.log(e)
-//  if (e.keyCode === 80) {
-//    incrementPoints()
-//    console.log('1 bims, ein P')
-//  }
-//})
 
 const clicker = function(e) {
   // Increment points on click by 1
@@ -100,18 +91,32 @@ const clicker = function(e) {
 
 };
 
-// function called when bag is clicked
-const baggy = function(e) {
+// function called when goodie1 is clicked
+const goodie1Click = function(e) {
   speed += 0.2;
-  clearTimeout(bagTimeOut); // stop the timeout since we clicked before the timeout
-  const bagContent = bag.innerHTML;
-  bag.innerHTML = "+0.2 km pro Sekunde";
+  clearTimeout(goodie1TimeOut); // stop the timeout since we clicked before the timeout
+  const goodie1Content = goodie1.innerHTML;
+  goodie1.innerHTML = "+0.2 km pro Sekunde";
 
-  // back to image of bag and hide bag
+//background is animating faster when goodies are collected too
+  if (speed === 0.2) {
+    background.classList.add("is-animating");
+  } else if (speed === 0.6) {
+    background.classList.remove("is-animating");
+    background.classList.add("is-animating-fast");
+  } else if (speed === 0.8) {
+    background.classList.remove("is-animating-fast");
+    background.classList.add("is-animating-even-faster");
+  } else if (speed === 1.6) {
+    background.classList.remove("is-animating-even-faster");
+    background.classList.add("is-animating-even-fasterer");
+  }
+
+  // back to image of goodie1 and hide goodie1
   // all this after 1.5s
   setTimeout(function() {
-    bag.innerHTML = bagContent;
-    bag.classList.add("is-hidden");
+    goodie1.innerHTML = goodie1Content;
+    goodie1.classList.add("is-hidden");
   }, 1500);
 
   perSecondCounter.innerHTML = speed.toFixed(1);
@@ -125,4 +130,4 @@ window.setInterval(function() {
 }, 1000);
 
 cat.addEventListener("click", clicker);
-bag.addEventListener("click", baggy);
+goodie1.addEventListener("click", goodie1Click);
