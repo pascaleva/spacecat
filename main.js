@@ -6,7 +6,7 @@ const perSecondCounter = document.getElementById("per-second-counter");
 let points = 0;
 let speed = 0;
 let clicks = 0; // here we count the clicks – every 10th click there is a bag comming
-let goodyTimeOut = null; // here we save the timer while the goody is visible
+let bagTimeOut = null; // here we save the timer while the bag is visible
 
 // https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 // min and max included
@@ -50,24 +50,15 @@ const incrementPoints = function() {
     background.classList.add("is-animating-even-fasterer");
   }
 
-  if (points >= 100) {
-    cat.style.transform = "scale(4)";
-    cat.style.transform += "rotate(30deg)";
-    background.classList.remove("is-animating-even-fasterer");
-  }
-
-  //if(points >= 10) {
-  //    document.getElementById("cat").classList.remove("jumping");
-  //  }
 };
 
 const handleGoodies = function() {
   clicks++; // one more click
 
   // one out of 15 draws we get a goody
-  if (randomMinMax(0, 15) === 0) {
+  if (randomMinMax(0, 5) === 0) {
     // only for debug. see dev-console to see when you hit it
-    console.log("goodie is now visibel");
+    //console.log("goodie is now visibel");
 
     // the goody is in the middle randomly move it somewhere
     bag.style.transform =
@@ -77,12 +68,12 @@ const handleGoodies = function() {
       randomPlusMinus(randomMinMax(20, 45)) +
       "vh)";
 
-    // the goodies are visible between 0.7s and 3s
-    let visibelInMs = randomMinMax(700, 3000);
+    // the bag is visible between 0.8s and 3s
+    let visibelInMs = randomMinMax(800, 3000);
     console.log("visible for: ", visibelInMs);
 
     // set the timeout
-    goodyTimeOut = setTimeout(function() {
+    bagTimeOut = setTimeout(function() {
       bag.classList.add("is-hidden");
     }, visibelInMs);
 
@@ -106,12 +97,22 @@ const clicker = function(e) {
   // Increment points on click by 1
   incrementPoints();
   handleGoodies(); // on each click we look if we deserve new goodies
+
 };
 
+// function called when bag is clicked
 const baggy = function(e) {
   speed += 0.2;
-  clearTimeout(goodyTimeOut); // stop the timeout since we clicked before the timeout
-  bag.classList.add("is-hidden");
+  clearTimeout(bagTimeOut); // stop the timeout since we clicked before the timeout
+  const bagContent = bag.innerHTML;
+  bag.innerHTML = "+0.2 km pro Sekunde";
+
+  // back to image of bag and hide bag
+  // all this after 1.5s
+  setTimeout(function() {
+    bag.innerHTML = bagContent;
+    bag.classList.add("is-hidden");
+  }, 1500);
 
   perSecondCounter.innerHTML = speed.toFixed(1);
 };
