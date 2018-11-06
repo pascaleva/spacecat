@@ -98,6 +98,18 @@ body {
   line-height: 1rem;
 }
 
+#goodie2 {
+  width: 60px;
+  background-color: transparent;
+  top: 50%;
+  left: 50%;
+  position:absolute;
+  cursor:pointer;
+  color: white;
+  font-size:0.8rem;
+  line-height: 1rem;
+}
+
 .bag {
   height: 70px;
   width: 70px;
@@ -161,6 +173,37 @@ body {
   height: 100%;
 }
 
+.container-collection {
+  position: absolute;
+  top: 83%;
+  left: 0px;
+  width: 300px;
+  color:white;
+  font-size:0.8rem;
+  vertical-align: middle;
+
+}
+
+.collection-goodie1 {
+  position: relative;
+  left:28px;
+  height:31px;
+  display: table;
+
+}
+#goodie-counter {
+  width:20px;
+  position: relative;
+  float:left;
+  vertical-align: middle;
+  top:7px;
+}
+
+.bag-collection {
+  width: 22px;
+  position: relative;
+}
+
 /* media queries for mobile min max width 320px */
 @media only screen and (max-device-width: 480px) {
   #cat {
@@ -205,6 +248,15 @@ body {
   }
 
   #goodie1 {
+    height: 100px;
+    width: 200px;
+    cursor:auto;
+    font-size:1.9rem;
+    line-height: 2.2rem;
+    touch-action: none;
+  }
+
+  #goodie2 {
     height: 100px;
     width: 200px;
     cursor:auto;

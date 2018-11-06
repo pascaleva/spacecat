@@ -1,12 +1,15 @@
 const cat = document.getElementById("cat-img");
 const counter = document.getElementById("counter");
 const goodie1 = document.getElementById("goodie1");
+const goodie2 = document.getElementById("goodie2");
 const background = document.getElementById("background");
 const perSecondCounter = document.getElementById("per-second-counter");
 let points = 0;
 let speed = 0; //add 0.2km/s
 let clicks = 0; // here we count the clicks – every 10th click there is a goodie1 (bag) coming
 let goodie1TimeOut = null; // here we save the timer while the goodie1 is visible
+let goodie2TimeOut = null; // here we save the timer while the goodie2 is visible
+
 
 // https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 // min and max included
@@ -22,13 +25,7 @@ const randomPlusMinus = function(number) {
 const incrementPoints = function() {
   points++;
   counter.innerHTML = points.toFixed(1);
-  // cat.style.transform = 'rotate(' + (points * 10) + 'deg)';
 
-  // transform scale: value only between 0 and 1!!!
-  // cat.style.transform += 'scale(' + (1 / points) + ')';
-
-  // achtung bei .style.transform –> wird immer nur eines genommen, ausser man addiert mit +=
-  // cat.style.transform += 'blabla'
 
   if (points <= 20) {
     cat.style.transform = "translateY(" + points * -10 + "px)";
@@ -56,12 +53,12 @@ const incrementPoints = function() {
 const handleGoodies = function() {
   clicks++; // one more click
 
-  // one out of 15 draws we get a goody
-  if (randomMinMax(0, 5) === 0) {
+  // one out of 8 draws we get a goody
+  if (randomMinMax(0, 8) === 0) {
     // only for debug. see dev-console to see when you hit it
     //console.log("goodie is now visibel");
 
-    // the goody is in the middle randomly move it somewhere
+    // the goodie1 is in the middle randomly move it somewhere
     goodie1.style.transform =
       "translate(" +
       randomPlusMinus(randomMinMax(20, 45)) +
@@ -81,6 +78,33 @@ const handleGoodies = function() {
     // show goodie1
     goodie1.classList.remove("is-hidden");
   }
+
+  // one out of 8 draws we get a goody
+  if (randomMinMax(0, 8) === 0) {
+    // only for debug. see dev-console to see when you hit it
+    //console.log("goodie is now visibel");
+
+    // the goodie2 is in the middle randomly move it somewhere
+    goodie2.style.transform =
+      "translate(" +
+      randomPlusMinus(randomMinMax(20, 45)) +
+      "vw, " +
+      randomPlusMinus(randomMinMax(20, 45)) +
+      "vh)";
+
+    // the goodie2 is visible between 0.8s and 3s
+    let visibelInMs = randomMinMax(1000, 4000);
+    console.log("visible for: ", visibelInMs);
+
+    // set the timeout
+    goodie2TimeOut = setTimeout(function() {
+      goodie2.classList.add("is-hidden");
+    }, visibelInMs);
+
+    // show goodie1
+    goodie2.classList.remove("is-hidden");
+  }
+
 };
 
 
@@ -122,6 +146,24 @@ const goodie1Click = function(e) {
   perSecondCounter.innerHTML = speed.toFixed(1);
 };
 
+
+// function called when goodie2 is clicked
+const goodie2Click = function(e) {
+  speed += 0.3;
+  clearTimeout(goodie2TimeOut); // stop the timeout since we clicked before the timeout
+  const goodie2Content = goodie2.innerHTML;
+  goodie2.innerHTML = "+0.3 km pro Sekunde";
+
+  // back to image of goodie2 and hide goodie2
+  // all this after 1.5s
+  setTimeout(function() {
+    goodie2.innerHTML = goodie2Content;
+    goodie2.classList.add("is-hidden");
+  }, 1500);
+
+  perSecondCounter.innerHTML = speed.toFixed(1);
+};
+
 window.setInterval(function() {
   // console.log('i bims, der points: ', points)
   // console.log('i bims, der speed: ', speed)
@@ -131,3 +173,4 @@ window.setInterval(function() {
 
 cat.addEventListener("click", clicker);
 goodie1.addEventListener("click", goodie1Click);
+goodie2.addEventListener("click", goodie1Click);
