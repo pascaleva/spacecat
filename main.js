@@ -173,4 +173,4 @@ window.setInterval(function() {
 
 cat.addEventListener("click", clicker);
 goodie1.addEventListener("click", goodie1Click);
-goodie2.addEventListener("click", goodie1Click);
+goodie2.addEventListener("click", goodie2Click);
