@@ -79,8 +79,8 @@ const handleGoodies = function() {
     goodie1.classList.remove("is-hidden");
   }
 
-  // one out of 8 draws we get a goody
-  if (randomMinMax(0, 8) === 0) {
+  // one out of 20 draws we get a goody
+  if (randomMinMax(0, 20) === 0) {
     // only for debug. see dev-console to see when you hit it
     //console.log("goodie is now visibel");
 
