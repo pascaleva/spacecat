@@ -149,10 +149,10 @@ const goodie1Click = function(e) {
 
 // function called when goodie2 is clicked
 const goodie2Click = function(e) {
-  speed += 0.3;
+  speed += 3;
   clearTimeout(goodie2TimeOut); // stop the timeout since we clicked before the timeout
   const goodie2Content = goodie2.innerHTML;
-  goodie2.innerHTML = "+0.3 km pro Sekunde";
+  goodie2.innerHTML = "+3 km pro Sekunde";
 
   // back to image of goodie2 and hide goodie2
   // all this after 1.5s
