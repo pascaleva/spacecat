@@ -13,46 +13,46 @@ Die Hauptfigur ist eine Katze, die die Erde verlassen will, da sie dort keine Na
 ---
 
 ### Spielmechanik
-Bei Klick auf die Katze bewegt sie sich weiter von der Erde weg. Die Distanz als Km Zahl gross angezeigt. Wenn sie eine bestimmte Anzahl Kilometer erreicht hat, erreicht sie ein neues Level. Dies wird durch den Zähler links oben angezeigt. Es gibt eine Kilometer Anzeige pro Sekunde.
+Bei Klick auf die Katze bewegt sie sich weiter von der Erde weg. Die Distanz wird gross in Kilometer angezeigt. Es gibt eine Kilometer Anzeige pro Sekunde. Wenn dieser aktiviert wird, schwebt die Katze von allein.
 
-Auf dem Weg begegnet die Katze verschiedensten Reiseutensilien, welche ihr einen Boost geben können. Durch diese Boosts steigt die Kilometer Anzeige pro Sekunde. Doch nicht alles ist ungefährlich. Es gibt auch Slow-downs, die die Katze zurückfallen lässt bzw. die Kilometer Anzahl sinken lässt. Diese sind getarnt als normale Boosts und erscheinen random. Jeder Gegenstand hat einen anderen Boost und erscheint zu einem anderen Zeitpunkt. Es soll zudem ein Random Generator erstellt werden, der die Gegenstände willkürlich erscheinen lässt. Momentan erscheinen die Elemente noch auf Klick der Katze aber das soll losgelöst in einer math.random Funktion umgesetzt werden.
+Auf dem Weg begegnen der Katze verschiedenste Goodies, welche ihr einen Boost geben können. Durch diese Boosts steigt die Kilometer Anzeige pro Sekunde. Die Goodies erscheinen random. Jeder Gegenstand hat einen anderen Boost und erscheint zu einem anderen Zeitpunkt. Es gibt gewisse Goodies, die mehr Kilometer geben. Diese erscheinen auch weniger oft. 
 
-Das Spiel soll auch auf Mobile funktionieren. Es soll also möglichst einfach gehalten werden. Zudem soll der Aufwand in der Programmierung abgeschätzt werden und zu aufwändige Ideen nach hinten terminiert werden.
-
+Das Spiel ist auf Mobile optimiert. Es soll also möglichst einfach gehalten werden. 
 
 ---
 
 
-### Achievements
-Achievements werden hier dokumentiert:
+### Boosts
+Ein Boost besteht aus einem Produkt und gibt bei Klick zusätzliche Kilometer pro Sekunde. 
 
-**Boosts**
-Ein Boost besteht aus einem Produkt und gibt bei Klick zusätzliche Kilometer pro Sekunde. Wenn man 10 vom jeweiligen Produkt gesammelt hat, verschwindet es und ein neues Produkt mit mehr Boost erscheint.
+* Bag: pro Klick +0.2km/s
+* Fisch: pro Klick +1km/s
+* Maus: pro Klick +3km/s
+* Wollknäuel: pro Klick +8km/s 
 
-<img src="https://i.imgur.com/vNbcxNh.png" width="250">
-
-
-* Cat-Bag alle 10 Klicks (10km), pro Klick +0.2km/s
-* Wollknäuel: alle 20 Klicks, +0.5km/s 
-* Maus: alle 30 Klicks, +1km/s
-* Festmahl: das ist ein Element, welches ein Boost oder ein Slow-down sein kann, welches erst  erscheint wenn von einem Produkt 10 gesammelt wurden: es gibt +10km/s ODER ein slow-down -100km%
+ Es gibt unten links eine Goodie Collection Übersicht der gesammelten Gegenstände. Somit hat der User immer im Blick was er gesammelt hat und einen Ansporn mehr zu sammeln. Hier ein Bild, welches zeigen soll, wie die Goodies angezeigt werden. 
  
-Später werden die Produkte random erscheinen.
+<img src="https://i.imgur.com/vNbcxNh.png" width="250">
 
 
 ---
 
 ### Design
-Das Design wird bewusst einfach gehalten, sodass es auch auf Mobile gut umgesetzt werden kann.
+Das Design wird bewusst einfach gehalten, sodass es auch auf Mobile gut umgesetzt werden kann. Die Goodies bestehen aus selbst gezeichneten outline-Grafiken, welche Weiss besonders gut zur Geltung kommen.
 
 ### Code
 
 
 ### Endprodukt
-
+https://pascaleva.github.io/spacecat/
 
 ### Erweiterung
-Es werden weitere Boosts eingesetzt. Es könnte mit Levels gearbeitet werden.
+Es werden weitere Boosts eingesetzt. Die Goodie Collection kann so erweitert werden, indem immer 10 Goodies von einem Gegenstand gesammelt werden müssen, damit ein neues Goodie freigeschaltet wird.
+
+Es könnten auch Slow-downs erscheinen, die die Katze zurückfallen lässt bzw. die Kilometer Anzahl sinken lässt. Diese sind getarnt als normale Boosts und erscheinen random. 
+
+Musik könnte integriert werden.
+
 
 ### Quellen
 1. [Cookie Clicker](http://orteil.dashnet.org/cookieclicker/)
