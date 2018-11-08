@@ -191,7 +191,7 @@ body {
   display: table;
 
 }
-#goodie-counter {
+.goodie-counter {
   width:20px;
   position: relative;
   float:left;

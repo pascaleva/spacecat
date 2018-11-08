@@ -2,6 +2,7 @@ const cat = document.getElementById("cat-img");
 const counter = document.getElementById("counter");
 const goodie1 = document.getElementById("goodie1");
 const goodie2 = document.getElementById("goodie2");
+const goodieCounter1 = document.getElementById("goodie-counter1");
 const background = document.getElementById("background");
 const perSecondCounter = document.getElementById("per-second-counter");
 let points = 0;
@@ -9,7 +10,7 @@ let speed = 0; //add 0.2km/s
 let clicks = 0; // here we count the clicks – every 10th click there is a goodie1 (bag) coming
 let goodie1TimeOut = null; // here we save the timer while the goodie1 is visible
 let goodie2TimeOut = null; // here we save the timer while the goodie2 is visible
-
+let goodie1ClickCount = 0;
 
 // https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 // min and max included
@@ -79,8 +80,8 @@ const handleGoodies = function() {
     goodie1.classList.remove("is-hidden");
   }
 
-  // one out of 8 draws we get a goody
-  if (randomMinMax(0, 8) === 0) {
+  // one out of 20 draws we get a goody
+  if (randomMinMax(0, 20) === 0) {
     // only for debug. see dev-console to see when you hit it
     //console.log("goodie is now visibel");
 
@@ -117,6 +118,11 @@ const clicker = function(e) {
 
 // function called when goodie1 is clicked
 const goodie1Click = function(e) {
+  goodie1ClickCount += 1;
+
+  goodieCounter1.innerHTML = goodie1ClickCount+"×";
+
+
   speed += 0.2;
   clearTimeout(goodie1TimeOut); // stop the timeout since we clicked before the timeout
   const goodie1Content = goodie1.innerHTML;
@@ -149,10 +155,10 @@ const goodie1Click = function(e) {
 
 // function called when goodie2 is clicked
 const goodie2Click = function(e) {
-  speed += 0.3;
+  speed += 3;
   clearTimeout(goodie2TimeOut); // stop the timeout since we clicked before the timeout
   const goodie2Content = goodie2.innerHTML;
-  goodie2.innerHTML = "+0.3 km pro Sekunde";
+  goodie2.innerHTML = "+3 km pro Sekunde";
 
   // back to image of goodie2 and hide goodie2
   // all this after 1.5s
@@ -173,4 +179,4 @@ window.setInterval(function() {
 
 cat.addEventListener("click", clicker);
 goodie1.addEventListener("click", goodie1Click);
-goodie2.addEventListener("click", goodie1Click);
+goodie2.addEventListener("click", goodie2Click);
