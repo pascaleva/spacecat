@@ -20,7 +20,7 @@ Auf dem Weg begegnen der Katze verschiedenste Goodies, welche ihr einen Boost ge
 Das Spiel ist auf Mobile optimiert. Es soll also möglichst einfach gehalten werden. 
 
 ---
-
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ### Boosts
 Ein Boost besteht aus einem Produkt und gibt bei Klick zusätzliche Kilometer pro Sekunde. 
