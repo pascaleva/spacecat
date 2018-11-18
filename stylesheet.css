@@ -350,4 +350,11 @@ body {
     width: 68px;
     position: relative;
   }
+
+  .backbutton {
+    width:80px;
+    top:43px;
+    left:40px;
+    position:absolute;
+  }
 }
