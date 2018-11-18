@@ -230,6 +230,13 @@ body {
   position: relative;
 }
 
+.backbutton {
+  width:25px;
+  top:28px;
+  left:28px;
+  position:absolute;
+}
+
 /* media queries for mobile min max width 320px */
 @media only screen and (max-device-width: 480px) {
   #cat {
