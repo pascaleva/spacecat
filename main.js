@@ -52,19 +52,18 @@ const incrementPoints = function() {
   }
 
 //background is animating when cat is clicked x times
-  if (points === 5.0) {
+  if (points >= 5.0) {
     background.classList.add("is-animating");
-  } else if (points === 15.0) {
+  }  if (points >= 15.0) {
     background.classList.remove("is-animating");
     background.classList.add("is-animating-fast");
-  } else if (points === 40.0) {
+  }  if (points >= 40.0) {
     background.classList.remove("is-animating-fast");
     background.classList.add("is-animating-even-faster");
-  } else if (points === 80.0) {
+  }  if (points >= 80.0) {
     background.classList.remove("is-animating-even-faster");
     background.classList.add("is-animating-even-fasterer");
   }
-
 };
 
 //background is animating faster when goodies are collected
@@ -200,7 +199,7 @@ const handleGoodies = function() {
 };
 
 
-const clicker = function(e) {
+const clicker = function() {
   // Increment points on click by 1
   incrementPoints();
   handleGoodies(); // on each click we look if we deserve new goodies
@@ -208,7 +207,7 @@ const clicker = function(e) {
 };
 
 // function called when goodie1 is clicked
-const goodie1Click = function(e) {
+const goodie1Click = function() {
   goodie1ClickCount += 1;
 
   goodieCounter1.innerHTML = goodie1ClickCount+"×";
@@ -233,7 +232,7 @@ const goodie1Click = function(e) {
 
 
 // function called when goodie2 is clicked
-const goodie2Click = function(e) {
+const goodie2Click = function() {
   goodie2ClickCount += 1;
 
   goodieCounter2.innerHTML = goodie2ClickCount+"×";
@@ -254,7 +253,7 @@ const goodie2Click = function(e) {
 };
 
 // function called when goodie3 is clicked
-const goodie3Click = function(e) {
+const goodie3Click = function() {
   goodie3ClickCount += 1;
 
   goodieCounter3.innerHTML = goodie3ClickCount+"×";
@@ -276,7 +275,7 @@ const goodie3Click = function(e) {
 
 
 // function called when goodie4 is clicked
-const goodie4Click = function(e) {
+const goodie4Click = function() {
   goodie4ClickCount += 1;
 
   goodieCounter4.innerHTML = goodie4ClickCount+"×";
